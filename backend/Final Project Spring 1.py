@@ -1,3 +1,4 @@
+# David Cortes CIS 3368
 # importing functions and classes from the creds and sql files to use with this
 import flask
 import mysql.connector
@@ -9,6 +10,7 @@ from sql import execute_read_query
 from flask import jsonify
 from flask import request
 
+# Setting up the username and password in the beggining to use with the log in functionality
 authorizedusers = [
     {
         # default user
@@ -158,13 +160,9 @@ def add_flight_record():
 # read record from planes(REFERENCE: from 5th lecture's py file)
 @app.route('/api/flights/get', methods=['GET'])
 def read_flights_records():
-    if 'id' in request.args: 
-        id = int(request.args['id'])
-    else:
-        return 'ERROR: No ID provided!' # (REFERENCE: from 5th lecture's py file) checking to see if the user has put 'id' under key in Postman, if not return an error.
     myCreds = creds.Creds()
     conn = create_connection(myCreds.conString, myCreds.userName, myCreds.password, myCreds.dbName)
-    sql = "SELECT * FROM flights WHERE id = %s" %(id)
+    sql = "SELECT * FROM flights"
     flights = execute_read_query(conn, sql)
     return jsonify(flights)
 
