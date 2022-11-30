@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+
+</head>
+<body class="container">
+
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <main>
+        
+        <% if (locals.flights) { %>
+            <ul>
+                <% flights.forEach(function(flight) { %>
+                    <li>
+                        <strong><%= flight.planeid %></strong>
+                        <%= flight.airportfromid %>
+                        <%= flight.airporttoid %>
+                        <%= flight.date %>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } %>
+
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+</html>

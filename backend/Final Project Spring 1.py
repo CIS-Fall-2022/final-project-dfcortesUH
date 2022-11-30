@@ -28,7 +28,6 @@ app.config["DEBUG"] = True #allow to show errors in browser
 
 #(Reference: security.api file from lecture)
 # route to authenticate with username and password
-# test in postman by creating header parameters 'username' and 'password' and pass in credentials
 @app.route('/', methods=['GET'])
 def home():
     username = request.headers['username'] #get the header parameters
@@ -38,7 +37,6 @@ def home():
             adminInfo = au['admininfo']
             returnInfo = []
             returnInfo.append(au['role'])
-            returnInfo.append(adminInfo)
             return jsonify(returnInfo)
     return 'SECURITY ERROR'
 
@@ -157,7 +155,7 @@ def add_flight_record():
     execute_query(flights, add_flight_query)   
     return 'Flight added!'
 
-# read record from planes(REFERENCE: from 5th lecture's py file)
+# read record from flights(REFERENCE: from 5th lecture's py file)
 @app.route('/api/flights/get', methods=['GET'])
 def read_flights_records():
     myCreds = creds.Creds()
@@ -166,7 +164,7 @@ def read_flights_records():
     flights = execute_read_query(conn, sql)
     return jsonify(flights)
 
-# delete plane record from the planes table (REFERENCE: from 5th lecture's py file)
+# delete flight record from the flights table (REFERENCE: from 5th lecture's py file)
 @app.route('/api/flights/delete', methods=['DELETE'])
 def delete_flight_record():
     request_data = request.get_json()
