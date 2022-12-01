@@ -10,33 +10,31 @@ const bodyParser  = require('body-parser');
 const axios = require('axios');
 
 app.use(bodyParser.urlencoded());
+app.use(express.urlencoded({extended: true}))
 
 // set the view engine to ejs
 //REFERENCE: CLASS 8 FILES
 app.set('view engine', 'ejs');
+
 
 // index page goes automatically to signin.ejs
 app.get('/', function(req, res) {
     res.render("pages/signin.ejs", {});
 });
 
-app.get('/allflights', function(req,res){
-    res.render("pages/allflights.ejs", {
-    });
-})
-
-// app.post('/process_login', function(req, res){
-//     var user = req.body.username;
-//     var password = req.body.password;
-//     //call to my login API 
-//     axios.get('http://127.0.0.1:5000/')
-//         .then((response)=>{
-//             if(user === 'davidfcortes007atUH' && password ===        'finalProjectatUHpu')
-//             {
-//                 res.render("pages/allflights.ejs", {});
-//             }
-//         }); 
-//   })
+// what happens after you submit your log-in information (assuming that it is correct)
+app.post('/login', function(req, res){
+    var username = req.body.username;
+    var pw = req.body.password;
+    //call to my login API 
+    axios.post('http://127.0.0.1:5000/login')
+    .then((response)=>{
+        res.render("pages/signin.ejs", {
+            username: username,
+            password: pw
+        });
+    }); 
+  })
 
 
 

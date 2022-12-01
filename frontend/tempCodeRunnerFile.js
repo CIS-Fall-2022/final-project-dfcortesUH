@@ -20,25 +20,23 @@ app.get('/', function(req, res) {
     res.render("pages/signin.ejs", {});
 });
 
-app.post('/process_login', function(req, res){
-    var user = req.body.username;
-    var password = req.body.password;
-    //local API call to my login API 
-    axios.get('http://127.0.0.1:5000/')
-        .then((response)=>{
-            if(user === 'davidfcortes007atUH' && password === 'finalProjectatUHpu')
-        {
-            res.render('pages/allplanes.ejs', {
-                user: user,
-                auth: true
-            });
-        }
-        else
-        {
-            "Unauthorized user"
-        }
-        }); 
-  })
+app.get('/allflights', function(req,res){
+    res.render("pages/allflights.ejs", {
+    });
+})
+
+// app.post('/process_login', function(req, res){
+//     var user = req.body.username;
+//     var password = req.body.password;
+//     //call to my login API 
+//     axios.get('http://127.0.0.1:5000/')
+//         .then((response)=>{
+//             if(user === 'davidfcortes007atUH' && password ===        'finalProjectatUHpu')
+//             {
+//                 res.render("pages/allflights.ejs", {});
+//             }
+//         }); 
+//   })
 
 
 

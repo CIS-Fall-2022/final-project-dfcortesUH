@@ -28,13 +28,12 @@ app.config["DEBUG"] = True #allow to show errors in browser
 
 #(Reference: security.api file from lecture)
 # route to authenticate with username and password
-@app.route('/', methods=['GET'])
+@app.route('/login', methods=['GET'])
 def home():
     username = request.headers['username'] #get the header parameters
-    pw = request.headers['password']
+    password = request.headers['password']
     for au in authorizedusers: #loop over all users and find one that is authorized to access
-        if au['username'] == username and au['password'] == pw: #found an authorized user
-            adminInfo = au['admininfo']
+        if au['username'] == username and au['password'] == password: #found an authorized user
             returnInfo = []
             returnInfo.append(au['role'])
             return jsonify(returnInfo)
