@@ -1,35 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <%- include('../partials/head'); %>
-
+  <%- include('../partials/head'); %>
 </head>
+
 <body class="container">
-
-    <header>
-        <%- include('../partials/header'); %>
-    </header>
-
-    <main>
-        
-        <% if (locals.flights) { %>
-            <ul>
-                <% flights.forEach(function(flight) { %>
-                    <li>
-                        <strong><%= flight.planeid %></strong>
-                        <%= flight.airportfromid %>
-                        <%= flight.airporttoid %>
-                        <%= flight.date %>
-                    </li>
-                <% }); %>
-            </ul>
-        <% } %>
-
-    </main>
-
-    <footer>
-        <%- include('../partials/footer'); %>
-    </footer>
-
+  <header>
+    <%- include('../partials/header'); %>
+  </header>
+  <main>
+    <div>
+      <% if (locals.flights) { %>
+      <ul>
+        <% flights.forEach(function(flight) { %>
+        <li>
+          <strong><%= flight.planeid %></strong>
+          <%= flight.airportfromid %>
+          <%= flight.airporttoid %>
+          <%= flight.date %>
+        </li>
+        <% }); %>
+      </ul>
+      <% } %>
+    </div>
+    <div>
+      <form action="/add_flight" method="post">
+        <h3> add flight </h3>
+        <div class="form-group">
+          <label for="exampleInputPlane" class="form-label">Plane ID</label>
+          <input type="text" id="planeid" name="planeid" class="form-control" placeholder="planeid" required autofocus>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputAirportFromID" class="form-label">Airport From ID</label>
+            <input type="text" id="airportfromid" name="airportfromid" class="form-control" placeholder="airportfromid" required autofocus>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputAirportToID" class="form-label">Airport To ID</label>
+            <input type="text" id="airporttoid" name="airporttoid" class="form-control" placeholder="airporttoid" required autofocus>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputDate" class="form-label">Date</label>
+            <input type="text" id="date" name="date" class="form-control" placeholder="date" required autofocus>
+        </div>
+        <input class="btn btn-lg btn-primary btn-block" type="submit">
+      </form>
+    </div>
+    <div>
+        <form action="/delete_flight" method="delete">
+          <h3> delete flight </h3>
+          <div class="form-group">
+            <label for="exampleInputPlane" class="form-label">Plane ID</label>
+            <input type="text" id="planeid" name="planeid" class="form-control" placeholder="planeid" required autofocus>
+          </div>
+          <div class="form-group">
+              <label for="exampleInputAirportFromID" class="form-label">Airport From ID</label>
+              <input type="text" id="airportfromid" name="airportfromid" class="form-control" placeholder="airportfromid" required autofocus>
+          </div>
+          <div class="form-group">
+              <label for="exampleInputAirportToID" class="form-label">Airport To ID</label>
+              <input type="text" id="airporttoid" name="airporttoid" class="form-control" placeholder="airporttoid" required autofocus>
+          </div>
+          <div class="form-group">
+              <label for="exampleInputDate" class="form-label">Date</label>
+              <input type="text" id="date" name="date" class="form-control" placeholder="date" required autofocus>
+          </div>
+          <input class="btn btn-lg btn-primary btn-block" type="submit">
+        </form>
+      </div>
+  </main>
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
 </body>
+
 </html>

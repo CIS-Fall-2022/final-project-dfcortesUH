@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+
+  <header>
+    <%- include('../partials/header'); %>
+  </header>
+
+  <main>
+    <div>
+      <form action="/airports" method="post">
+        <h4>Please input airport information for creating:</h4>
+        <div class="form-group">
+          <label for="airportcode" class="form-label">Airport Code</label>
+          <input type="text" id="airportcode" name="airportcode" class="form-control" placeholder="Airport Code"
+            required autofocus>
+        </div>
+        <div class="form-group">
+          <label for="airportname" class="form-label">Airport Name</label>
+          <input type="text" name="airportname" id="airportname" class="form-control" placeholder="Airport Name"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="country" class="form-label">Country</label>
+          <input type="text" name="country" id="country" class="form-control" placeholder="Country" required>
+        </div>
+
+        <input class="btn btn-lg btn-primary btn-block" type="submit">
+      </form>
+    </div>
+    <div>
+      <form action="/airports" method="get">
+        <h4>Please input airport code information for reading:</h4>
+        <div class="form-group">
+          <label for="airportcode" class="form-label">Airport Code</label>
+          <input type="text" id="airportcode" name="airportcode" class="form-control" placeholder="Airport Code"
+            required autofocus>
+        </div>
+        <input class="btn btn-lg btn-primary btn-block" type="submit">
+      </form>
+    </div>
+    <div>
+      <form action="/airports" method="put">
+        <h4>Please input airport information for updating:</h4>
+        <div class="form-group">
+          <label for="airportcode" class="form-label">Airport Code</label>
+          <input type="text" id="airportcode" name="airportcode" class="form-control" placeholder="Airport Code"
+            required autofocus>
+        </div>
+        <div class="form-group">
+          <label for="airportname" class="form-label">Airport Name</label>
+          <input type="text" name="airportname" id="airportname" class="form-control" placeholder="Airport Name"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="country" class="form-label">Country</label>
+          <input type="text" name="country" id="country" class="form-control" placeholder="Country" required>
+        </div>
+              <form action="/airports" method="delete">
+                <h4>Please input airport information for deleting:</h4>
+                <div class="form-group">
+                  <label for="airportcode" class="form-label">Airport Code</label>
+                  <input type="text" id="airportcode" name="airportcode" class="form-control" placeholder="Airport Code"
+                    required autofocus>
+                </div>
+                <div class="form-group">
+                  <label for="airportname" class="form-label">Airport Name</label>
+                  <input type="text" name="airportname" id="airportname" class="form-control" placeholder="Airport Name"
+                    required>
+                </div>
+                <div class="form-group">
+                  <label for="country" class="form-label">Country</label>
+                  <input type="text" name="country" id="country" class="form-control" placeholder="Country" required>
+                </div>
+  </main>
+
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
+
+</body>
+
+</html>

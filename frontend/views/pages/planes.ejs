@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+
+  <header>
+    <%- include('../partials/header'); %>
+  </header>
+
+  <main>
+    <div>
+      <form action="/planes" method="post">
+        <h4>Please input plane information to update:</h4>
+        <div class="form-group">
+          <label for="makle" class="form-label">Make</label>
+          <input type="text" id="make" name="make" class="form-control" placeholder="Airplane Make" required autofocus>
+        </div>
+        <div class="form-group">
+          <label for="model" class="form-label">Model</label>
+          <input type="model" name="model" id="model" class="form-control" placeholder="Airplane Model" required>
+        </div>
+        <div class="form-group">
+          <label for="year" class="form-label">Year</label>
+          <input type="text" name="year" id="year" class="form-control" placeholder="Airplane Year" required>
+        </div>
+        <div class="form-group">
+            <label for="Capacity" class="form-label">Capacity</label>
+            <input type="text" name="Capacity" id="Capacity" class="form-control" placeholder="Airplane's Capacity" required>
+          </div>
+
+        <input class="btn btn-lg btn-primary btn-block" type="submit">
+      </form>
+    </div>
+    <div>
+        <form action="/planes" method="get">
+          <h4>Please input plane make to read all results:</h4>
+          <div class="form-group">
+            <label for="makle" class="form-label">Make</label>
+            <input type="text" id="make" name="make" class="form-control" placeholder="Airplane Make" required autofocus>
+          </div>
+          <input class="btn btn-lg btn-primary btn-block" type="submit">
+        </form>
+      </div>
+      <div>
+        <form action="/planes" method="put">
+          <h4>Please input plane info to update:</h4>
+          <div class="form-group">
+            <label for="makle" class="form-label">Make</label>
+            <input type="text" id="make" name="make" class="form-control" placeholder="Airplane Make" required autofocus>
+          </div>
+          <div class="form-group">
+            <label for="model" class="form-label">Model</label>
+            <input type="model" name="model" id="model" class="form-control" placeholder="Airplane Model" required>
+          </div>
+          <div class="form-group">
+            <label for="year" class="form-label">Year</label>
+            <input type="text" name="year" id="year" class="form-control" placeholder="Airplane Year" required>
+          </div>
+          <div class="form-group">
+              <label for="Capacity" class="form-label">Capacity</label>
+              <input type="text" name="Capacity" id="Capacity" class="form-control" placeholder="Airplane's Capacity" required>
+            </div>
+  
+          <input class="btn btn-lg btn-primary btn-block" type="submit">
+        </form>
+      </div>
+      <div>
+        <form action="/planes" method="delete">
+          <h4>Please input plane info to delete:</h4>
+          <div class="form-group">
+            <label for="makle" class="form-label">Make</label>
+            <input type="text" id="make" name="make" class="form-control" placeholder="Airplane Make" required autofocus>
+          </div>
+          <div class="form-group">
+            <label for="model" class="form-label">Model</label>
+            <input type="model" name="model" id="model" class="form-control" placeholder="Airplane Model" required>
+          </div>
+          <div class="form-group">
+            <label for="year" class="form-label">Year</label>
+            <input type="text" name="year" id="year" class="form-control" placeholder="Airplane Year" required>
+          </div>
+          <div class="form-group">
+              <label for="capacity" class="form-label">Capacity</label>
+              <input type="text" name="capacity" id="capacity" class="form-control" placeholder="Airplane's Capacity" required>
+            </div>
+  
+          <input class="btn btn-lg btn-primary btn-block" type="submit">
+        </form>
+      </div>
+  </main>
+
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
+
+</body>
+
+</html>
